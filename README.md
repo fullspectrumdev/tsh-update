@@ -32,6 +32,7 @@ Further changes will follow as testing proceeds and I refactor small bits, try o
 
 
 ## Original readme below.
+```
 
                  Tiny SHell - An open-source UNIX backdoor
 
@@ -104,3 +105,4 @@ Further changes will follow as testing proceeds and I refactor small bits, try o
         However, you may choose not to store the real (valid) key in
         the client, which will then ask for a password when it starts.
 
+```
