@@ -28,8 +28,11 @@ mv tshd sendmail
 PATH=.:$PATH ENV_ARGS="-c localhost -s HACKTHEPLANET -p 1437" sendmail 
 ```
 
-Further changes will follow as testing proceeds and I refactor small bits, try out some bullshit, etc.
+Further changes will follow as testing proceeds and I refactor small bits, try out some bullshit, etc. 
 
+For the planned experiments/etc, see the Issues tab where I've created an issue for each "idea" to experiment with. 
+
+I can't guarentee any timeline on how fast anything will get done, or in what order, it really depends on free time, effort, etc. 
 
 ## Original readme below.
 ```
