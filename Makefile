@@ -9,9 +9,9 @@ COMM		= pel.o aes.o sha1.o
 TSH		= tsh
 TSHD		= tshd
 
-VERSION=tsh-0.7
+VERSION=tsh-0.8
 CLIENT_OBJ=pel.c aes.c sha1.c  tsh.c
-SERVER_OBJ=pel.c aes.c sha1.c tshd.c
+SERVER_OBJ=pel.c aes.c sha1.c tshd.c env2argv.c
 
 DISTFILES= \
     sha1.h \
