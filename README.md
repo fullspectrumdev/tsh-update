@@ -34,6 +34,10 @@ For the planned experiments/etc, see the Issues tab where I've created an issue 
 
 I can't guarentee any timeline on how fast anything will get done, or in what order, it really depends on free time, effort, etc. 
 
+## current notes:
+11-04-2024: tested in bind shell mode, working on Ubuntu and FreeBSD targets. Reverse connect mode seems buggy, unclear if network gremlins or other. Build on OpenBSD fails. Plan going forward is to fix the reverse connect mode, then fix the OpenBSD build-time issues, then fix the OpenBSD run-time issues. 
+
+
 ## Original readme below.
 ```
 
