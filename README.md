@@ -37,6 +37,13 @@ I can't guarentee any timeline on how fast anything will get done, or in what or
 ## current notes:
 11-04-2024: tested in bind shell mode, working on Ubuntu and FreeBSD targets. Reverse connect mode seems buggy, unclear if network gremlins or other. Build on OpenBSD fails. Plan going forward is to fix the reverse connect mode, then fix the OpenBSD build-time issues, then fix the OpenBSD run-time issues. 
 
+## compatability/test notes
+
+| OS | Distribution | Version | Architecture | Bind Shell Client | Bind Shell Server | Reverse Shell Client | Reverse Shell Server | File Upload | File Download | Env2Args |
+| :---:        |     :---:      |         :---: | :---:        |     :---:      |         :---: | :---:        |     :---:      |         :---: |    :---:      |         :---: |
+| Linux   | Ubuntu |   23.10  | x86_64 | YES | YES | NO | NO | UNK | UNK | YES |
+| FreeBSD | FreeBSD | 14.0-RELEASE | x86_64 | YES | YES | NO | NO | UNK | UNK | YES |
+
 
 ## Original readme below.
 ```
