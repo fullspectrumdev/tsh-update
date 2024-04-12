@@ -35,7 +35,8 @@ For the planned experiments/etc, see the Issues tab where I've created an issue 
 I can't guarentee any timeline on how fast anything will get done, or in what order, it really depends on free time, effort, etc. 
 
 ## current notes:
-11-04-2024: tested in bind shell mode, working on Ubuntu and FreeBSD targets. Reverse connect mode seems buggy, unclear if network gremlins or other. Build on OpenBSD fails. Plan going forward is to fix the reverse connect mode, then fix the OpenBSD build-time issues, then fix the OpenBSD run-time issues. 
+11-04-2024: tested in bind shell mode, working on Ubuntu and FreeBSD targets. Reverse connect mode seems buggy, unclear if network gremlins or other. Build on OpenBSD fails. Plan going forward is to fix the reverse connect mode, then fix the OpenBSD build-time issues, then fix the OpenBSD run-time issues.  
+12-04-2024: Figured out that the issue with reverse-connection mode was an extra : in the getopt string after a lot of buggering around. Reverse and bind modes now working perfectly on FreeBSD and Ubuntu. Further stress testing needed though.  
 
 ## compatability/test notes
 I'll update these as I figure out what is/is not working, etc.
@@ -43,8 +44,8 @@ I'll update these as I figure out what is/is not working, etc.
 
 | OS | Distribution | Version | Architecture | Bind Shell Client | Bind Shell Server | Reverse Shell Client | Reverse Shell Server | File Upload | File Download | Env2Args |
 | :---:        |     :---:      |         :---: | :---:        |     :---:      |         :---: | :---:        |     :---:      |         :---: |    :---:      |         :---: |
-| Linux   | Ubuntu |   23.10  | x86_64 | YES | YES | NO | NO | UNK | UNK | YES |
-| FreeBSD | FreeBSD | 14.0-RELEASE | x86_64 | YES | YES | NO | NO | UNK | UNK | YES |
+| Linux   | Ubuntu |   23.10  | x86_64 | YES | YES | YES | YES | UNK | UNK | YES |
+| FreeBSD | FreeBSD | 14.0-RELEASE | x86_64 | YES | YES | YES | YES | UNK | UNK | YES |
 
 
 ## Original readme below.
