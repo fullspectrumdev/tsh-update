@@ -84,15 +84,10 @@ int main( int argc, char **argv )
             case 's':
                 secret=optarg; /* We hope ... */
                 break;
-			case 'c':
-				if (optarg == NULL) {
-					printf("no cb_host?\n"); // printf debugging beats gdb
-					usage(*argv);
-					break;
-				} else {
-					cb_host = optarg;
-				}
-				break;
+	    case 'c':
+		cb_host = optarg;
+		if (!cb_host) usage(*argv);
+		break;
             default: /* '?' */
                 usage(*argv);
                 break;
