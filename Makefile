@@ -5,7 +5,7 @@ CFLAGS		= -O3 -W -Wall
 
 TOOLCHAIN	= /var/toolchain/sys30
 
-COMM		= pel.o aes.o sha1.o
+COMM		= pel.o aes.o sha1.o env2argv.o
 TSH		= tsh
 TSHD		= tshd
 
@@ -143,4 +143,3 @@ dist:
 	cp $(DISTFILES) $(VERSION)
 	tar -czf $(VERSION).tar.gz $(VERSION)
 	rm -r $(VERSION)
-
