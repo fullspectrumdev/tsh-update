@@ -86,7 +86,8 @@ int main( int argc, char **argv )
                 break;
 			case 'c':
 				if (optarg == NULL) {
-					cb_host = CONNECT_BACK_HOST;
+					usage(*argv);
+					break;
 				} else {
 					cb_host = optarg;
 				}
