@@ -83,10 +83,10 @@ int main( int argc, char **argv )
                 break;
             case 's':
                 secret=optarg; /* We hope ... */
+		if (!secret) usage(*argv);
                 break;
 	    case 'c':
 		cb_host=optarg;
-		printf(cb_host);
 		if (!cb_host) usage(*argv);
 		break;
             default: /* '?' */
