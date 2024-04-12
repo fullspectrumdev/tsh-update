@@ -86,6 +86,7 @@ int main( int argc, char **argv )
                 break;
 			case 'c':
 				if (optarg == NULL) {
+					printf("no cb_host?\n"); // printf debugging beats gdb
 					usage(*argv);
 					break;
 				} else {
