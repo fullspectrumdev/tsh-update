@@ -39,6 +39,7 @@ I can't guarentee any timeline on how fast anything will get done, or in what or
 12-04-2024: Figured out that the issue with reverse-connection mode was an extra : in the getopt string after a lot of buggering around. Reverse and bind modes now working perfectly on FreeBSD and Ubuntu. Further stress testing needed though.  
 12-04-2024: currently, the tsh client sends `exec bash --login` as the default command to pop a shell - `tsh_runshell( server, "exec bash --login" ) );`, on some systems without bash this causes an error. So we should probably default to "sh" instead?  
 12-04-2024: issuing a release at this point just as a snapshot of it "working" on Ubuntu/FreeBSD.  
+13-04-2024: OpenBSD support has been provisionally fixed at this time, though you need to replace "gcc" with "egcc" in the Makefile currently.  
 
 ## compatability/test notes
 I'll update these as I figure out what is/is not working, etc.
