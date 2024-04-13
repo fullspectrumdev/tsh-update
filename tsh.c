@@ -3,7 +3,7 @@
  * by Christophe Devine <devine@cr0.net>;
  * this program is licensed under the GPL.
  */
-
+#include <sys/select.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
