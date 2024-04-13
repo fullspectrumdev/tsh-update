@@ -75,7 +75,7 @@ int pel_client_init( int server, char *key )
     sha1_update( &sha1_ctx, (uint8 *) &pid, sizeof( pid ) );
     sha1_finish( &sha1_ctx, &buffer[ 0] );
 
-    memcpy( IV1, &buffer[ 0], 20 );
+    memmove( IV1, &buffer[ 0], 20 );
 
     pid++;
 
@@ -91,7 +91,7 @@ int pel_client_init( int server, char *key )
     sha1_update( &sha1_ctx, (uint8 *) &pid, sizeof( pid ) );
     sha1_finish( &sha1_ctx, &buffer[20] );
 
-    memcpy( IV2, &buffer[20], 20 );
+    memmove( IV2, &buffer[20], 20 );
 
     /* and pass them to the server */
 
@@ -126,7 +126,7 @@ int pel_client_init( int server, char *key )
     pel_errno = PEL_UNDEFINED_ERROR;
 
     return( PEL_SUCCESS );
-} 
+}
 
 /* session setup - server side */
 
@@ -141,8 +141,8 @@ int pel_server_init( int client, char *key )
 
     if( ret != PEL_SUCCESS ) return( PEL_FAILURE );
 
-    memcpy( IV2, &buffer[ 0], 20 );
-    memcpy( IV1, &buffer[20], 20 );
+    memmove( IV2, &buffer[ 0], 20 );
+    memmove( IV1, &buffer[20], 20 );
 
     /* setup the session keys */
 
@@ -188,7 +188,7 @@ void pel_setup_context( struct pel_context *pel_ctx,
 
     aes_set_key( &pel_ctx->SK, buffer, 128 );
 
-    memcpy( pel_ctx->LCT, IV, 16 );
+    memmove( pel_ctx->LCT, IV, 16 );
 
     memset( pel_ctx->k_ipad, 0x36, 64 );
     memset( pel_ctx->k_opad, 0x5C, 64 );
@@ -226,7 +226,7 @@ int pel_send_msg( int sockfd, unsigned char *msg, int length )
 
     /* append the message content */
 
-    memcpy( buffer + 2, msg, length );
+    memmove( buffer + 2, msg, length );
 
     /* round up to AES block length (16 bytes) */
 
@@ -248,7 +248,7 @@ int pel_send_msg( int sockfd, unsigned char *msg, int length )
 
         aes_encrypt( &send_ctx.SK, &buffer[i] );
 
-        memcpy( send_ctx.LCT, &buffer[i], 16 );
+        memmove( send_ctx.LCT, &buffer[i], 16 );
     }
 
     /* compute the HMAC-SHA1 of the ciphertext */
@@ -301,7 +301,7 @@ int pel_recv_msg( int sockfd, unsigned char *msg, int *length )
 
     /* decrypt this block and extract the message length */
 
-    memcpy( temp, buffer, 16 );
+    memmove( temp, buffer, 16 );
 
     aes_decrypt( &recv_ctx.SK, buffer );
 
@@ -314,7 +314,7 @@ int pel_recv_msg( int sockfd, unsigned char *msg, int *length )
 
     /* restore the ciphertext */
 
-    memcpy( buffer, temp, 16 );
+    memmove( buffer, temp, 16 );
 
     /* verify the message length */
 
@@ -340,7 +340,7 @@ int pel_recv_msg( int sockfd, unsigned char *msg, int *length )
 
     if( ret != PEL_SUCCESS ) return( PEL_FAILURE );
 
-    memcpy( hmac, &buffer[blk_len], 20 );
+    memmove( hmac, &buffer[blk_len], 20 );
 
     /* verify the ciphertext integrity */
 
@@ -374,7 +374,7 @@ int pel_recv_msg( int sockfd, unsigned char *msg, int *length )
 
     for( i = 0; i < blk_len; i += 16 )
     {
-        memcpy( temp, &buffer[i], 16 );
+        memmove( temp, &buffer[i], 16 );
 
         aes_decrypt( &recv_ctx.SK, &buffer[i] );
 
@@ -383,10 +383,10 @@ int pel_recv_msg( int sockfd, unsigned char *msg, int *length )
             buffer[i + j] ^= recv_ctx.LCT[j];
         }
 
-        memcpy( recv_ctx.LCT, temp, 16 );
+        memmove( recv_ctx.LCT, temp, 16 );
     }
 
-    memcpy( msg, &buffer[2], *length );
+    memmove( msg, &buffer[2], *length );
 
     pel_errno = PEL_UNDEFINED_ERROR;
 
@@ -450,7 +450,7 @@ int pel_recv_all( int s, void *buf, size_t len, int flags )
 
         offset += n;
     }
-        
+
     pel_errno = PEL_UNDEFINED_ERROR;
 
     return( PEL_SUCCESS );
