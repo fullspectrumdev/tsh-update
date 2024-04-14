@@ -49,6 +49,9 @@ I'll update these as I figure out what is/is not working, etc.
 | :---:        |     :---:      |         :---: | :---:        |     :---:      |         :---: | :---:        |     :---:      |         :---: |    :---:      |         :---: |
 | Linux   | Ubuntu |   23.10  | x86_64 | YES | YES | YES | YES | UNK | UNK | YES |
 | FreeBSD | FreeBSD | 14.0-RELEASE | x86_64 | YES | YES | YES | YES | UNK | UNK | YES |
+| OpenBSD | OpenBSD | 7.5 | x86_64 | YES | YES | YES | YES | UNK | UNK | YES |
+| Darwin | MacOS | 22.4.0 | ARM | YES | YES | YES | YES | UNK | UNK | YES |
+
 
 
 ## Original readme below.
