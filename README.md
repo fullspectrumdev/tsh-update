@@ -41,6 +41,7 @@ I can't guarentee any timeline on how fast anything will get done, or in what or
 12-04-2024: issuing a release at this point just as a snapshot of it "working" on Ubuntu/FreeBSD.  
 13-04-2024: OpenBSD support has been provisionally fixed at this time, though you need to replace "gcc" with "egcc" in the Makefile currently.  
 14-04-2024: Tested working with dietlibc on Ubuntu, x86_64 platform. Probably can optimise for size.  
+16-04-2024: Working on ARM Debian  
 
 ## compatability/test notes
 I'll update these as I figure out what is/is not working, etc.
@@ -52,6 +53,8 @@ I'll update these as I figure out what is/is not working, etc.
 | FreeBSD | FreeBSD | 14.0-RELEASE | x86_64 | YES | YES | YES | YES | UNK | UNK | YES |
 | OpenBSD | OpenBSD | 7.5 | x86_64 | YES | YES | YES | YES | UNK | UNK | YES |
 | Darwin | MacOS | 22.4.0 | ARM | YES | YES | YES | YES | UNK | UNK | YES |
+| Linux | Debian | 12 | ARM | YES | YES | YES | YES | UNK | UNK | YES |
+
 
 
 
